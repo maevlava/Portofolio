@@ -1,32 +1,39 @@
-import Section from "@/components/Section";
-
-const sectionsData = [
-  {
-    img: "/images/sections/Odin.jpg",
-    alt: "DATA SCIENCE",
-  },
-  {
-    img: "/images/sections/Heimdall.jpg",
-    alt: "CYBERSECURITY",
-  },
-  {
-    img: "/images/sections/Eitri_Brokkr.png",
-    alt: "FULLSTACK",
-  },
-  {
-    img: "/images/sections/Freyr.jpg",
-    alt: "MOBILE",
-  },
-];
-
+import Image from "next/image";
+import MevlavaLogo from "@/components/MevlavaLogo";
 export default function Home() {
   return (
-    <main className="flex min-h-screen bg-black">
-      {sectionsData.map((section, index) => (
-          <div key={index} className="flex-1 p-1.5 bg-black">
-            <Section key={index} img={section.img} alt={section.alt} />
-          </div>
-      ))}
+    <main className="min-h-screen text-[#ebf1d4] flex flex-col justify-center items-center text-center">
+        <Heading />
+        <StyledLogo />
     </main>
   );
+}
+
+const headingContent = [
+    "A world of data is just noise without the wisdom to hear its story",
+    "A beautiful interface is silent without a powerful backend",
+    "A brilliant algorithm is useless without security"
+];
+
+function Heading() {
+    return (
+        <div className={"pb-5"}>
+            {headingContent.map((content, index) => (
+                <h1 key={index} className="font-lato font-bold text-h3 mt-4">
+                    {content}
+                </h1>
+            ))}
+        </div>
+    )
+}
+function StyledLogo() {
+    return (
+        <div className="mt-12 text-[#ebf1d4]">
+            <MevlavaLogo
+                stroke={"#FFFFFF"}
+                strokeWidth={2}
+                className="w-48 h-auto"
+            />
+        </div>
+    );
 }
